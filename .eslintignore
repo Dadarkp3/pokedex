@@ -1,5 +1,6 @@
 .next
 .cache
+!.jest
 package-lock.json
 public
 node_modules
