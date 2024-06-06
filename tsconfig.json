@@ -19,7 +19,9 @@
     ],
     "baseUrl": "./src/",
     "paths": {
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@mocks/*": ["lib/mocks/*"],
+      "@models/*": ["models/*"]
     },
     "types": ["@testing-library/jest-dom"]
   },
