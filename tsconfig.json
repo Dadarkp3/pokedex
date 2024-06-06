@@ -17,8 +17,9 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/components/*": ["components/*"]
     },
     "types": ["@testing-library/jest-dom"]
   },
