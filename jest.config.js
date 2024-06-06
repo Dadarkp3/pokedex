@@ -23,6 +23,6 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
   moduleNameMapper: {
-    '^@/components/(.*)$': '<rootDir>/src/components/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
   },
 };
