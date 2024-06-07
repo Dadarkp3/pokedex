@@ -1,29 +1,46 @@
-import { fireEvent, render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+
+import { SearchBarProps } from 'models/searchBarModels';
 
 import SearchBar from '../searchBar';
 
 describe('SearchBar', () => {
-  test('should render input with placeholder text', () => {
-    const { getByPlaceholderText } = render(
-      <SearchBar query="" setQuery={() => {}} />,
-    );
+  const setup = (props: Partial<SearchBarProps> = {}) => {
+    const defaultProps: SearchBarProps = {
+      query: '',
+      setQuery: jest.fn(),
+    };
 
-    const input = getByPlaceholderText(/Digite o nome do Pokémon/i); // Case-insensitive match
+    return render(<SearchBar {...defaultProps} {...props} />);
+  };
 
-    expect(input).toBeInTheDocument();
+  it('should render input with placeholder text', () => {
+    setup();
+
+    expect(
+      screen.getByPlaceholderText('Digite o nome do Pokémon'),
+    ).toBeInTheDocument();
   });
 
-  test('should update query state on input change', () => {
-    const mockSetQuery = jest.fn();
-    const { getByPlaceholderText } = render(
-      <SearchBar query="" setQuery={mockSetQuery} />,
-    );
+  it('should call setQuery when Enter key is pressed', () => {
+    const setQuery = jest.fn();
+    setup({ setQuery });
 
-    const input = getByPlaceholderText(/Digite o nome do Pokémon/i);
-
+    const input = screen.getByPlaceholderText('Digite o nome do Pokémon');
     fireEvent.change(input, { target: { value: 'Pikachu' } });
+    fireEvent.keyUp(input, { key: 'Enter', code: 'Enter' });
 
-    expect(mockSetQuery).toHaveBeenCalledTimes(1);
-    expect(mockSetQuery).toHaveBeenCalledWith('Pikachu'); // Verify passed value
+    expect(setQuery).toHaveBeenCalledWith('Pikachu');
+  });
+
+  it('should not call setQuery when key is not Enter', () => {
+    const setQuery = jest.fn();
+    setup({ setQuery });
+
+    const input = screen.getByPlaceholderText('Digite o nome do Pokémon');
+    fireEvent.change(input, { target: { value: 'Pikachu' } });
+    fireEvent.keyUp(input, { key: 'Escape', code: 'Escape' });
+
+    expect(setQuery).not.toHaveBeenCalled();
   });
 });

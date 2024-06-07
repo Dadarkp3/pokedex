@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
+import { Dispatch, SetStateAction } from 'react';
 
 export interface SearchBarProps {
   query: string;
-  setQuery: (query: string) => void;
+  setQuery: Dispatch<SetStateAction<string>>;
 }
