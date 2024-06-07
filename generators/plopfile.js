@@ -19,6 +19,11 @@ module.exports = (plop) => {
         path: '../src/components/{{pascalCase name}}/__test__/{{camelCase name}}.spec.tsx',
         templateFile: 'templates/tests.tsx.hbs',
       },
+      {
+        type: 'add',
+        path: '../src/components/{{pascalCase name}}/{{camelCase name}}.module.scss',
+        templateFile: 'templates/styles.scss.hbs',
+      },
     ],
   });
 };

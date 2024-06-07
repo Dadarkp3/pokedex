@@ -26,5 +26,6 @@ module.exports = {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@mocks/(.*)$': '<rootDir>/src/lib/mocks/$1',
     '^@models/(.*)$': '<rootDir>/src/models/$1',
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
 };
