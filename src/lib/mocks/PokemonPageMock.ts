@@ -1,4 +1,4 @@
-import { PokemonPage } from '@models/Pokemon';
+import { PokemonPage } from 'models/PokemonModels';
 
 export const pokemonPageMock: PokemonPage = {
   count: 1302,

@@ -1,4 +1,5 @@
 module.exports = {
+  rootDir: '.',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   collectCoverage: true,
@@ -8,6 +9,7 @@ module.exports = {
     '!src/lib/registry.tsx',
     '!src/types/**',
     '!src/styles/**',
+    '!src/lib/mocks/**',
   ],
   coverageThreshold: {
     global: {
@@ -23,9 +25,6 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
   moduleNameMapper: {
-    '^@components/(.*)$': '<rootDir>/src/components/$1',
-    '^@mocks/(.*)$': '<rootDir>/src/lib/mocks/$1',
-    '^@models/(.*)$': '<rootDir>/src/models/$1',
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
 };
