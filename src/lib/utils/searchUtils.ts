@@ -4,7 +4,6 @@ export const handleInputChange = (
   e: ChangeEvent<HTMLInputElement>,
   setSearchTerm: Dispatch<SetStateAction<string>>,
 ) => {
-  console.log(e.target.value);
   setSearchTerm(e.target.value);
 };
 

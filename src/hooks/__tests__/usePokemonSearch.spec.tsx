@@ -11,28 +11,28 @@ jest.mock('lib/utils/hooksUtils', () => ({
 
 describe('usePokemonSearch', () => {
   test('should render initial state and fetch pokemon on mount', async () => {
-    const { result } = renderHook(() => usePokemonSearch(''));
+    const { result } = renderHook(() => usePokemonSearch({ query: '' }));
 
     expect(result.current.pokemon).toBeNull();
     expect(result.current.loading).toBeFalsy();
-    expect(result.current.error).toBe('');
+    expect(result.current.error).toBeFalsy();
 
     await act(async () => {});
 
     expect(result.current.pokemon).toEqual(null);
     expect(result.current.loading).toBeFalsy();
-    expect(result.current.error).toBe('');
+    expect(result.current.error).toBeFalsy();
   });
 
   test('should render fetched pokemon on successful fetch', async () => {
     jest.mocked(fetchPokemonMock).mockResolvedValueOnce(pokemonMock);
-    const { result } = renderHook(() => usePokemonSearch('Pikachu'));
+    const { result } = renderHook(() => usePokemonSearch({ query: 'Pikachu' }));
 
     await act(async () => {});
 
     expect(result.current.pokemon).toEqual(pokemonMock);
     expect(result.current.loading).toBeFalsy();
-    expect(result.current.error).toBe('');
+    expect(result.current.error).toBe(false);
     expect(fetchPokemonMock).toHaveBeenCalledTimes(1);
   });
 
@@ -40,17 +40,21 @@ describe('usePokemonSearch', () => {
     const error = new Error('Network Error');
     jest.mocked(fetchPokemonMock).mockRejectedValueOnce(error);
 
-    const { result } = renderHook(() => usePokemonSearch('Bulbasaur'));
+    const { result } = renderHook(() =>
+      usePokemonSearch({ query: 'Bulbasaur' }),
+    );
 
     await act(async () => {});
 
     expect(result.current.pokemon).toBeNull();
     expect(result.current.loading).toBeFalsy();
-    expect(result.current.error).toBe('Erro ao buscar o Pokémon');
+    expect(result.current.error).toBeTruthy();
   });
 
   test('should clear pokemon on unmount', async () => {
-    const { result, unmount } = renderHook(() => usePokemonSearch(''));
+    const { result, unmount } = renderHook(() =>
+      usePokemonSearch({ query: '' }),
+    );
 
     await act(async () => {});
 
@@ -62,14 +66,13 @@ describe('usePokemonSearch', () => {
   });
 
   test('should not find the correct pokemon', async () => {
-    const { result } = renderHook(() => usePokemonSearch('pichachu'));
-    console.log(result.current.error);
+    const { result } = renderHook(() =>
+      usePokemonSearch({ query: 'pichachu' }),
+    );
 
     await act(async () => {});
     expect(result.current.pokemon).toBeNull();
     expect(result.current.loading).toBeFalsy();
-    expect(result.current.error).toBe(
-      'Erro undefined: Pokémon não encontrado.',
-    );
+    expect(result.current.error).toBeTruthy();
   });
 });

@@ -1,9 +1,9 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 
 import { handleInputChange, handleKeyUp } from 'lib/utils/searchUtils';
 import { SearchBarProps } from 'models/searchBarModels';
 
-const SearchBar: FC<SearchBarProps> = ({ query, setQuery }) => {
+const SearchBar = ({ query, setQuery }: SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState(query);
 
   return (
