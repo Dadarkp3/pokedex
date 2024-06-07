@@ -21,7 +21,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@mocks/*": ["lib/mocks/*"],
-      "@models/*": ["models/*"]
+      "@models/*": ["models/*"],
+      "@styles/*": ["styles/*"]
     },
     "types": ["@testing-library/jest-dom"]
   },
