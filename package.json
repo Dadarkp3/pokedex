@@ -14,7 +14,8 @@
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
-    "coverage": "npm run test -- --coverage --watchAll=false"
+    "coverage": "npm run test -- --coverage --watchAll=false",
+    "generate": "npx plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
     "next": "14.2.3",
@@ -43,6 +44,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.5",
+    "plop": "^4.0.1",
     "prettier": "^3.3.1",
     "typescript": "^5"
   }
