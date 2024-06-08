@@ -15,7 +15,7 @@ const Main = () => {
   return (
     <main>
       <Header />
-      <SearchBar query={query} setQuery={setQuery} />
+      <SearchBar query={query} setQuery={setQuery} isLoading={loading} />
       {pokemon?.name}
       {loading && <Loading />}
       {error && <ErrorMessage />}

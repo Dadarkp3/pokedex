@@ -75,4 +75,21 @@ describe('usePokemonSearch', () => {
     expect(result.current.loading).toBeFalsy();
     expect(result.current.error).toBeTruthy();
   });
+
+  test('it should not search if the query is the same as the previous', async () => {
+    jest.mocked(fetchPokemonMock).mockResolvedValueOnce(pokemonMock);
+    const response1 = renderHook(() => usePokemonSearch({ query: 'Pikachu' }));
+
+    await act(async () => {});
+
+    expect(response1.result.current.pokemon).toEqual(pokemonMock);
+    expect(response1.result.current.loading).toBeFalsy();
+    expect(response1.result.current.error).toBe(false);
+
+    const response2 = renderHook(() => usePokemonSearch({ query: 'Pikachu' }));
+
+    await act(async () => {});
+
+    expect(response2.result.current.pokemon).toBeNull();
+  });
 });
