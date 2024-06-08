@@ -2,9 +2,9 @@ import { useState, useCallback, useEffect } from 'react';
 
 import { fetchPokemonMock } from 'lib/utils/hooksUtils';
 import { Pokemon } from 'models/PokemonModels';
-import { PokemonSearchHookProps } from 'models/usePokemonSearchModels';
+import { UsePokemonSearchProps } from 'models/usePokemonSearchModels';
 
-const usePokemonSearch = ({ query }: PokemonSearchHookProps) => {
+const usePokemonSearch = ({ query }: UsePokemonSearchProps) => {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
