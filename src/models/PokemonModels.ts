@@ -1,22 +1,22 @@
-export interface PokemonResponseList {
+export type PokemonResponseList = {
   name: string;
   url: string;
-}
+};
 
-export interface PokemonPage {
+export type PokemonPage = {
   count: number;
   results: PokemonResponseList[];
   next: string | null;
   previous: string | null;
-}
+};
 
-export interface PokemonType {
+export type PokemonType = {
   type: {
     name: string;
   };
-}
+};
 
-export interface Pokemon {
+export type Pokemon = {
   name: string;
   id: number;
   types: PokemonType[];
@@ -29,4 +29,4 @@ export interface Pokemon {
       };
     };
   };
-}
+};

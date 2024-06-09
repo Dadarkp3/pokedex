@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export interface SearchBarProps {
+export type SearchBarProps = {
   query: string;
   setQuery: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
-}
+};

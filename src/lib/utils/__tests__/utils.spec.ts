@@ -68,6 +68,7 @@ describe('utils', () => {
     it('should not call setQuery when key is not Enter', () => {
       const setQuery = jest.fn();
       const searchTerm = 'Pikachu';
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       const event = {
         key: 'Escape',
       } as KeyboardEvent<HTMLInputElement>;

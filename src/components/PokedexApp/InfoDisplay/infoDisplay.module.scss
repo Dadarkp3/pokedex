@@ -1,0 +1,11 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.infoDisplay {
+  @include center;
+  background: $plesant-tones;
+  height: 5.625rem;
+  width: 60%;
+  border-radius: 0.625rem;
+  margin: 1.5rem;
+}

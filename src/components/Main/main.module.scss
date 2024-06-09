@@ -1,0 +1,11 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.container {
+  @include center;
+  @include collumnFlow;
+  background-color: $dark-light-tones;
+  width: 100vw;
+  height: 100vh;
+  padding: 0.63rem;
+}

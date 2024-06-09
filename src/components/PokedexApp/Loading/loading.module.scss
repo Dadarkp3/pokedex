@@ -1,0 +1,44 @@
+@import '../../../styles/variables.scss';
+
+.pokeball {
+  width: 20vmin;
+  height: 20vmin;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #fff 50%, #f00 50%);
+  position: relative;
+  animation: spin 2s linear infinite;
+}
+
+.pokeball::before,
+.pokeball::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pokeball::before {
+  width: 100%;
+  height: 10%;
+  background: #000;
+  top: 45%;
+}
+
+.pokeball::after {
+  width: 30%;
+  height: 30%;
+  background: #fff;
+  border: 10% solid #000;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

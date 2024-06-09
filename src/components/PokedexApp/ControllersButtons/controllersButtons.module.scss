@@ -1,0 +1,25 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.controllers {
+  @include center;
+  width: 80%;
+  margin: 1rem;
+}
+
+.controlsButton {
+  background: $dark-heavy-tones;
+  height: 3.75rem;
+  width: 3.75rem;
+  border-radius: 50%;
+  border-left: 0.63rem solid $dark-shadows;
+  border-bottom: 0.63rem solid $dark-shadows;
+}
+
+.controlsLongButton {
+  height: 0.938rem;
+  width: 4.375rem;
+  background: $light-background;
+  margin: 0.938rem;
+  border-radius: 0.625rem;
+}

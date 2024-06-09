@@ -1,24 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import PokedexApp from 'components/PokedexApp/pokedexApp';
 
-import ErrorMessage from 'components/ErrorMessage/errorMessage';
-import Header from 'components/Header/header';
-import Loading from 'components/Loading/loading';
-import SearchBar from 'components/SearchBar/searchBar';
-import usePokemonSearch from 'hooks/usePokemonSearch';
+import styles from './main.module.scss';
 
 const Main = () => {
-  const [query, setQuery] = useState<string>('');
-  const { pokemon, loading, error } = usePokemonSearch({ query });
-
   return (
-    <main>
-      <Header />
-      <SearchBar query={query} setQuery={setQuery} isLoading={loading} />
-      {pokemon?.name}
-      {loading && <Loading />}
-      {error && <ErrorMessage />}
+    <main className={styles.container}>
+      <PokedexApp />
     </main>
   );
 };

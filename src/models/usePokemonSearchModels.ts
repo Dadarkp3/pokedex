@@ -1,3 +1,3 @@
-export interface UsePokemonSearchProps {
+export type UsePokemonSearchProps = {
   query: string;
-}
+};

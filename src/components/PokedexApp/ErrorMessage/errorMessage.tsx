@@ -2,7 +2,7 @@ import styles from './errorMessage.module.scss';
 
 const ErrorMessage = () => (
   <div className={styles.container}>
-    <h1>ErrorMessage</h1>
+    <h4>Pokemon não encontrado...</h4>
   </div>
 );
 

@@ -1,0 +1,18 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.searchInputContainer {
+  @include center;
+
+  background: linear-gradient(to bottom, #ed7165 80%, #67686c 81%);
+  margin: 0.625rem;
+  border-radius: 0.313rem;
+
+  input {
+    border: none;
+    padding: 0.625rem;
+    margin: 0.313rem 0 0.313rem 0.313rem;
+    border-radius: 0.313rem;
+    width: calc(100% - 0.625rem);
+  }
+}

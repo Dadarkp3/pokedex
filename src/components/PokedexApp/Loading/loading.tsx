@@ -1,9 +1,7 @@
 import styles from './loading.module.scss';
 
 const Loading = () => (
-  <div className={styles.container}>
-    <h2>Loading</h2>
-  </div>
+  <div data-testid="loading" className={styles.pokeball}></div>
 );
 
 export default Loading;

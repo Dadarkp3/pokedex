@@ -1,0 +1,73 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.pokedexScreen {
+  @include center;
+  @include collumnFlow;
+
+  background: #e3e3e3;
+  border-radius: 1.25rem;
+  border-left: 0.438rem solid #838584;
+  border-bottom: 0.438rem solid #838584;
+  width: -webkit-fill-available;
+  height: 20rem;
+  margin: 0.625rem 0.625rem 0;
+}
+
+.pokemonImage {
+  color: transparent;
+  width: 100%;
+  height: auto;
+  max-width: 12.5rem;
+}
+
+.screenTop {
+  @include center;
+  width: 100%;
+}
+
+.screenLights {
+  background: #d30a40;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin: 1rem 0.625rem;
+  border-radius: 50%;
+}
+
+.imageContainer {
+  @include center;
+  background: $light-background;
+  border-radius: 0.625rem;
+  height: 12.5rem;
+  width: -webkit-fill-available;
+  margin: 0 1rem;
+}
+
+.screenBottom {
+  height: 5rem;
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.screenButton {
+  height: 2.188rem;
+  width: 2.188rem;
+  background: #d30a40;
+  border-radius: 50%;
+}
+
+.screenVents {
+  width: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.vents {
+  width: 100%;
+  height: 0.188rem;
+  border-radius: 0.625rem;
+  background: black;
+  margin: 0.188rem;
+}
