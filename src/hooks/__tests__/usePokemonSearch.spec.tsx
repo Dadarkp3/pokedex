@@ -1,8 +1,9 @@
-import { renderHook } from '@testing-library/react';
+import { fireEvent, render, renderHook, screen } from '@testing-library/react';
 import fetch, { enableFetchMocks } from 'jest-fetch-mock';
 enableFetchMocks();
 import { act } from 'react';
 
+import PokedexApp from 'components/PokedexApp/pokedexApp';
 import usePokemonSearch from 'hooks/usePokemonSearch';
 import { pokemonMock } from 'lib/mocks/PokemonMock';
 
@@ -86,5 +87,16 @@ describe('usePokemonSearch', () => {
     await act(async () => {});
     expect(result.current.pokemon).toBeNull();
     expect(result.current.error).toBeTruthy();
+  });
+
+  it('should not search if the query is the same as the previous', async () => {
+    fetch.mockResponseOnce(JSON.stringify({ data: pokemonMock }));
+    render(<PokedexApp />);
+    const input = screen.getByPlaceholderText('Digite o nome do Pokémon');
+    fireEvent.change(input, { target: { value: 'Pikachu' } });
+    fireEvent.keyUp(input, { key: 'Enter', code: 'Enter' });
+    fireEvent.change(input, { target: { value: 'Pikachu' } });
+    fireEvent.keyUp(input, { key: 'Enter', code: 'Enter' });
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 });

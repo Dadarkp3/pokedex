@@ -9,6 +9,7 @@ describe('SearchBar', () => {
     const defaultProps: SearchBarProps = {
       query: '',
       setQuery: jest.fn(),
+      isLoading: false,
     };
 
     return render(<SearchBar {...defaultProps} {...props} />);
