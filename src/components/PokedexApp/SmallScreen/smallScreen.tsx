@@ -15,7 +15,10 @@ const SmallScreen = ({ pokemon, loading }: SmallScreenProps) => {
       <div className={styles.imageContainer}>
         {pokemon && (
           <Image
-            src={pokemon.sprites.other['official-artwork'].front_default}
+            src={
+              pokemon.sprites?.other?.showdown?.front_default ||
+              pokemon.sprites?.other['official-artwork']?.front_default
+            }
             alt="Picture of the author"
             sizes="100vw"
             width={100}

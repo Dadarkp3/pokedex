@@ -6,7 +6,11 @@ import styles from './infoDisplay.module.scss';
 const InfoDisplay = ({ pokemon, loading, error }: InfoDisplayProps) => (
   <div className={styles.infoDisplay}>
     {error && <ErrorMessage />}
-    {pokemon && !loading && !error && <div>{pokemon.name}</div>}
+    {pokemon && !loading && !error && (
+      <div>
+        <div>{`#${pokemon.id} -  ${pokemon.name.toUpperCase()}`}</div>
+      </div>
+    )}
   </div>
 );
 

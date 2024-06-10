@@ -27,6 +27,9 @@ export type Pokemon = {
       'official-artwork': {
         front_default: string;
       };
+      showdown: {
+        front_default: string;
+      };
     };
   };
 };
