@@ -3,6 +3,7 @@
 
 .infoDisplay {
   @include center;
+  @include cartoonOutline;
   background: $plesant-tones;
   height: 5.625rem;
   width: 60%;

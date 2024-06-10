@@ -1,4 +1,5 @@
 @import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .lightsContainer {
   height: 6.25rem;
@@ -7,11 +8,12 @@
 }
 
 .bgLight {
+  @include cartoonOutline;
   background: radial-gradient(
     ellipse at center,
-    #a8f2fb 0%,
-    #0df1fc 50%,
-    #0ebcd4 100%
+    #a0c4ff 0%,
+    #3b82f6 50%,
+    #1142cc 100%
   );
   border-radius: 50%;
   border-top: 0.313rem solid $light-background;
@@ -29,9 +31,15 @@
 }
 
 .smallLights {
+  @include cartoonOutline;
   border-radius: 50%;
   margin: 0.438rem;
   height: 1.563rem;
   width: 1.563rem;
-  background: radial-gradient(ellipse at center, #dee25a 0%, #8e993b 100%);
+  background: radial-gradient(
+    ellipse at center,
+    #d4cead 0%,
+    #42cc89 50%,
+    #cc1142 100%
+  );
 }

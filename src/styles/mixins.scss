@@ -7,3 +7,7 @@
 @mixin collumnFlow {
   flex-flow: column;
 }
+
+@mixin cartoonOutline {
+  outline: 1px solid black;
+}

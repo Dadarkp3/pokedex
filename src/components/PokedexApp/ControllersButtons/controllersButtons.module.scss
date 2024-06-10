@@ -8,6 +8,7 @@
 }
 
 .controlsButton {
+  @include cartoonOutline;
   background: $dark-heavy-tones;
   height: 3.75rem;
   width: 3.75rem;
@@ -17,6 +18,7 @@
 }
 
 .controlsLongButton {
+  @include cartoonOutline;
   height: 0.938rem;
   width: 4.375rem;
   background: $light-background;

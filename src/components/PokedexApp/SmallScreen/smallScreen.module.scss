@@ -4,8 +4,9 @@
 .pokedexScreen {
   @include center;
   @include collumnFlow;
-
+  @include cartoonOutline;
   background: #e3e3e3;
+  background: url('/public/images/screenBg.jpeg') cover center no-repeat;
   border-radius: 1.25rem;
   border-left: 0.438rem solid #838584;
   border-bottom: 0.438rem solid #838584;
@@ -27,6 +28,7 @@
 }
 
 .screenLights {
+  @include cartoonOutline;
   background: #d30a40;
   width: 0.625rem;
   height: 0.625rem;
@@ -35,8 +37,12 @@
 }
 
 .imageContainer {
+  @include cartoonOutline;
   @include center;
   background: $light-background;
+  background-image: url('/images/screenBg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 0.625rem;
   height: 12.5rem;
   width: -webkit-fill-available;
@@ -52,6 +58,7 @@
 }
 
 .screenButton {
+  @include cartoonOutline;
   height: 2.188rem;
   width: 2.188rem;
   background: #d30a40;
@@ -65,6 +72,7 @@
 }
 
 .vents {
+  @include cartoonOutline;
   width: 100%;
   height: 0.188rem;
   border-radius: 0.625rem;

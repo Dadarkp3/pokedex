@@ -5,11 +5,11 @@ const ControllersButtons = () => (
     <div className={styles.controlsButton}></div>
     <div
       className={styles.controlsLongButton}
-      style={{ backgroundColor: 'red' }}
+      style={{ backgroundColor: '#cca142' }}
     ></div>
     <div
       className={styles.controlsLongButton}
-      style={{ backgroundColor: 'green' }}
+      style={{ backgroundColor: '#cc6e42' }}
     ></div>
   </div>
 );
