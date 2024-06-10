@@ -23,7 +23,6 @@ const usePokemonSearch = ({ query }: UsePokemonSearchProps) => {
         return;
       }
       const { data } = await response.json();
-      console.log(data);
       setPokemon(data);
       setError(false);
     } catch (err) {

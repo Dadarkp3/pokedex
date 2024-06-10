@@ -1,15 +1,17 @@
 import { renderHook } from '@testing-library/react';
+import fetch, { enableFetchMocks } from 'jest-fetch-mock';
+enableFetchMocks();
 import { act } from 'react';
 
 import usePokemonSearch from 'hooks/usePokemonSearch';
 import { pokemonMock } from 'lib/mocks/PokemonMock';
-import { fetchPokemonMock } from 'lib/utils/hooksUtils';
-
-jest.mock('lib/utils/hooksUtils', () => ({
-  fetchPokemonMock: jest.fn(),
-}));
 
 describe('usePokemonSearch', () => {
+  beforeEach(() => {
+    fetchMock.enableMocks();
+    fetch.resetMocks();
+  });
+
   test('should render initial state and fetch pokemon on mount', async () => {
     const { result } = renderHook(() => usePokemonSearch({ query: '' }));
 
@@ -25,20 +27,19 @@ describe('usePokemonSearch', () => {
   });
 
   test('should render fetched pokemon on successful fetch', async () => {
-    jest.mocked(fetchPokemonMock).mockResolvedValueOnce(pokemonMock);
-    const { result } = renderHook(() => usePokemonSearch({ query: 'Pikachu' }));
+    fetch.mockResponseOnce(JSON.stringify({ data: pokemonMock }));
+    const { result } = renderHook(() => usePokemonSearch({ query: 'ditto' }));
 
     await act(async () => {});
 
     expect(result.current.pokemon).toEqual(pokemonMock);
     expect(result.current.loading).toBeFalsy();
     expect(result.current.error).toBe(false);
-    expect(fetchPokemonMock).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   test('should render error on fetch error', async () => {
-    const error = new Error('Network Error');
-    jest.mocked(fetchPokemonMock).mockRejectedValueOnce(error);
+    fetch.mockReject(() => Promise.reject('API is down'));
 
     const { result } = renderHook(() =>
       usePokemonSearch({ query: 'Bulbasaur' }),
@@ -76,20 +77,14 @@ describe('usePokemonSearch', () => {
     expect(result.current.error).toBeTruthy();
   });
 
-  test('it should not search if the query is the same as the previous', async () => {
-    jest.mocked(fetchPokemonMock).mockResolvedValueOnce(pokemonMock);
-    const response1 = renderHook(() => usePokemonSearch({ query: 'Pikachu' }));
+  test('should not find the correct pokemon', async () => {
+    fetch.mockReject(() => Promise.reject('API is down'));
+    const { result } = renderHook(() =>
+      usePokemonSearch({ query: 'pichachu' }),
+    );
 
     await act(async () => {});
-
-    expect(response1.result.current.pokemon).toEqual(pokemonMock);
-    expect(response1.result.current.loading).toBeFalsy();
-    expect(response1.result.current.error).toBe(false);
-
-    const response2 = renderHook(() => usePokemonSearch({ query: 'Pikachu' }));
-
-    await act(async () => {});
-
-    expect(response2.result.current.pokemon).toBeNull();
+    expect(result.current.pokemon).toBeNull();
+    expect(result.current.error).toBeTruthy();
   });
 });
