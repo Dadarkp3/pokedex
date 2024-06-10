@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
 
-import { fetchPokemonMock } from 'lib/utils/hooksUtils';
 import { Pokemon } from 'models/PokemonModels';
 import { UsePokemonSearchProps } from 'models/usePokemonSearchModels';
 
@@ -17,13 +16,14 @@ const usePokemonSearch = ({ query }: UsePokemonSearchProps) => {
     setError(false);
     setOldQuery(query);
     try {
-      const response = await fetchPokemonMock(query);
+      const response = await fetch(`api/pokemon?name=${query}`);
       if (!response) {
         setError(true);
         setPokemon(null);
         return;
       }
-      const data: Pokemon = await response;
+      const { data } = await response.json();
+      console.log(data);
       setPokemon(data);
       setError(false);
     } catch (err) {
