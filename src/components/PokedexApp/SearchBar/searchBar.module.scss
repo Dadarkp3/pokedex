@@ -3,16 +3,21 @@
 
 .searchInputContainer {
   @include center;
+  @include cartoonOutline;
 
-  background: linear-gradient(to bottom, #ed7165 80%, #67686c 81%);
+  background: linear-gradient(
+    to bottom,
+    $pokedex-secondary-color 80%,
+    $dark-heavy-tones 81%
+  );
   margin: 0.625rem;
-  border-radius: 0.313rem;
+  border-radius: calc($border-radius / 2);
 
   input {
     border: none;
     padding: 0.625rem;
     margin: 0.313rem 0 0.313rem 0.313rem;
-    border-radius: 0.313rem;
+    border-radius: calc($border-radius / 2);
     width: calc(100% - 0.625rem);
   }
 }

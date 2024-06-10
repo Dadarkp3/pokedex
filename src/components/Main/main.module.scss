@@ -4,7 +4,11 @@
 .container {
   @include center;
   @include collumnFlow;
-  background: linear-gradient(to bottom, #6ab7f5, #fff);
+  background: linear-gradient(
+    to bottom,
+    $complementary-primary-color,
+    $light-background
+  );
   width: 100vw;
   height: 100vh;
   padding: 0.63rem;

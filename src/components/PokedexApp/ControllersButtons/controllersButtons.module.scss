@@ -13,8 +13,8 @@
   height: 3.75rem;
   width: 3.75rem;
   border-radius: 50%;
-  border-left: 0.63rem solid $dark-shadows;
-  border-bottom: 0.63rem solid $dark-shadows;
+  border-left: $border-radius solid $dark-shadows;
+  border-bottom: $border-radius solid $dark-shadows;
 }
 
 .controlsLongButton {
@@ -23,5 +23,5 @@
   width: 4.375rem;
   background: $light-background;
   margin: 0.938rem;
-  border-radius: 0.625rem;
+  border-radius: $border-radius;
 }
