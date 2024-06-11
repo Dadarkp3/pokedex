@@ -12,7 +12,7 @@ const Header = () => {
         alt="Logo icon"
         className={styles.image}
       />
-      <h1 className={styles.title}>Pokedex Research</h1>
+      <h1 className={styles.title}>Pokedex Search</h1>
     </header>
   );
 };
