@@ -3,7 +3,6 @@
 
 .container {
   @include center;
-  @include collumnFlow;
-  width: 100vw;
-  padding: 0.63rem;
+  color: $secondary-color;
+  margin: 1rem 0;
 }

@@ -1,0 +1,22 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.container {
+  @include center;
+  justify-content: flex-start;
+  background-color: white;
+  box-shadow: 6px 7px 4px rgba(0, 0, 0, 0.1);
+  width: 100vw;
+  border-bottom: 1px solid $dark-lighter-shadows;
+  margin: 0 0 1rem 0;
+}
+
+.image {
+  width: 10%;
+  max-width: 25px;
+  margin: 0.5rem;
+}
+
+.title {
+  font-size: small;
+}

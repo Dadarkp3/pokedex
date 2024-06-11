@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import Header from 'components/Header/header';
 
 describe('Header component', () => {
-  it('should have hello world', () => {
-    render(<Header />);
-
-    expect(screen.getByText('Hello world')).toBeInTheDocument();
+  it('should render the heading', () => {
+    const { getByRole } = render(<Header />);
+    const header = getByRole('banner');
+    expect(header).toBeInTheDocument();
   });
 });

@@ -7,9 +7,9 @@
   flex-direction: column;
   width: calc(100% - 2.5rem);
   border-radius: 2.5rem 1rem 1rem 2.5rem;
-  background: $pokedex-primary-color;
-  border-left: 1.25rem solid $pokedex-secondary-color;
-  border-bottom: 0.75rem solid $pokedex-secondary-color;
+  background: $primary-color;
+  border-left: 1.25rem solid $secondary-color;
+  border-bottom: 0.75rem solid $secondary-color;
   min-height: 60vh;
   max-width: 31.25rem;
 }

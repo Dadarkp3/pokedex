@@ -29,7 +29,7 @@
 
 .screenLights {
   @include cartoonOutline;
-  background: $pokedex-secondary-color;
+  background: $secondary-color;
   width: 0.625rem;
   height: 0.625rem;
   margin: 1rem 0.625rem;
@@ -61,7 +61,7 @@
   @include cartoonOutline;
   height: 2.188rem;
   width: 2.188rem;
-  background: $pokedex-secondary-color;
+  background: $secondary-color;
   border-radius: 50%;
 }
 
