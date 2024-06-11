@@ -10,6 +10,7 @@ module.exports = {
     '!src/types/**',
     '!src/styles/**',
     '!src/lib/mocks/**',
+    '!src/models/**',
   ],
   coverageThreshold: {
     global: {
