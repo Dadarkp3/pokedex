@@ -2,6 +2,8 @@
 
 This project is a frontend client with a Backend for Frontend (BFF) architecture built using [Next.js](https://nextjs.org/), [Typescript](https://www.typescriptlang.org/), [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) and [Sass](https://sass-lang.com/). It consumes the Restful version of the [PokeApi](https://pokeapi.co/) to provide a rich and interactive experience for users.
 
+[Live Site](https://arvo-pokedex.netlify.app/)
+
 ## Design
 
 ### Mobile
