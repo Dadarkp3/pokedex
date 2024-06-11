@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokedex Client with BFF
+
+This project is a frontend client with a Backend for Frontend (BFF) architecture built using [Next.js](https://nextjs.org/), [Typescript](https://www.typescriptlang.org/), [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) and [Sass](https://sass-lang.com/). It consumes the Restful version of the [PokeApi](https://pokeapi.co/) to provide a rich and interactive experience for users.
+
+## Requirements
+
+- [Node.js](https://nodejs.org/) v20
+- [npm](https://www.npmjs.com/) v10
 
 ## Getting Started
 
-First, run the development server:
+To get the project up and running, follow these steps:
 
 ```bash
+npm ci
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running Tests
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run the test cases:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run test
+```
 
-## Learn More
+To run the tests in watch mode:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run test:watch
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To check the test coverage:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run coverage
+```
 
-## Deploy on Vercel
+Note: The test coverage for this project is at 100%.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Generating Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To generate new components, you can use the following command:
+
+```bash
+npm run generate
+```
+
+Follow the prompts to enter the name of the component. The component will be automatically generated inside the components directory using Plop.js.
+
+## License
+
+This project is licensed under the MIT License.
