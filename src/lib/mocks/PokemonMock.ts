@@ -10,6 +10,10 @@ export const pokemonMock: Pokemon = {
         front_default:
           'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png',
       },
+      showdown: {
+        front_default:
+          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/132.gif',
+      },
     },
   },
   types: [
