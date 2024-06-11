@@ -16,7 +16,7 @@ const usePokemonSearch = ({ query }: UsePokemonSearchProps) => {
     setError(false);
     setOldQuery(query);
     try {
-      const response = await fetch(`api/pokemon?name=${query}`);
+      const response = await fetch(`api/pokemon?name=${query.toLowerCase()}`);
       const { data } = await response.json();
       setPokemon(data);
       setError(false);
