@@ -2,6 +2,16 @@
 
 This project is a frontend client with a Backend for Frontend (BFF) architecture built using [Next.js](https://nextjs.org/), [Typescript](https://www.typescriptlang.org/), [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) and [Sass](https://sass-lang.com/). It consumes the Restful version of the [PokeApi](https://pokeapi.co/) to provide a rich and interactive experience for users.
 
+## Design
+
+### Mobile
+
+<img src="public/images/mobile_version.png" alt="Mobile Version of the Aplication" width="300px">
+
+### Desktop
+
+<img src="public/images/desktop_version.png" alt="Desktop Version of the Aplication" width="300px">
+
 ## Requirements
 
 - [Node.js](https://nodejs.org/) v20
