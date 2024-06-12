@@ -13,7 +13,11 @@ export const handleKeyUp = ({
   searchTerm,
   query,
 }: handleKeyUpProps) => {
-  if (e.key === 'Enter' && query != searchTerm.toLowerCase()) {
+  if (e.key === 'Enter' && validateQuery(query, searchTerm)) {
     setQuery(searchTerm.toLowerCase());
   }
+};
+
+export const validateQuery = (query: string, searchTerm: string) => {
+  return query != searchTerm.toLowerCase();
 };
