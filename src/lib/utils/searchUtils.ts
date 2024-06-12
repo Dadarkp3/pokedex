@@ -1,18 +1,19 @@
-import { ChangeEvent, Dispatch, KeyboardEvent, SetStateAction } from 'react';
+import { HandleInputChangeProps, handleKeyUpProps } from 'models/UtilsModels';
 
-export const handleInputChange = (
-  e: ChangeEvent<HTMLInputElement>,
-  setSearchTerm: Dispatch<SetStateAction<string>>,
-) => {
+export const handleInputChange = ({
+  e,
+  setSearchTerm,
+}: HandleInputChangeProps) => {
   setSearchTerm(e.target.value);
 };
 
-export const handleKeyUp = (
-  e: KeyboardEvent<HTMLInputElement>,
-  setQuery: Dispatch<SetStateAction<string>>,
-  searchTerm: string,
-) => {
-  if (e.key === 'Enter') {
-    setQuery(searchTerm);
+export const handleKeyUp = ({
+  e,
+  setQuery,
+  searchTerm,
+  query,
+}: handleKeyUpProps) => {
+  if (e.key === 'Enter' && query != searchTerm.toLowerCase()) {
+    setQuery(searchTerm.toLowerCase());
   }
 };

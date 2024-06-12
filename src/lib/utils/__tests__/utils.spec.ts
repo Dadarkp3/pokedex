@@ -11,7 +11,7 @@ describe('utils', () => {
         target: { value: 'Pikachu' },
       } as ChangeEvent<HTMLInputElement>;
 
-      handleInputChange(event, setSearchTerm);
+      handleInputChange({ e: event, setSearchTerm });
 
       expect(setSearchTerm).toHaveBeenCalledWith('Pikachu');
     });
@@ -21,14 +21,15 @@ describe('utils', () => {
     it('should call setQuery with searchTerm when Enter is pressed', () => {
       const setQuery = jest.fn();
       const searchTerm = 'Pikachu';
+      const query = '';
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       const event = {
         key: 'Enter',
       } as KeyboardEvent<HTMLInputElement>;
 
-      handleKeyUp(event, setQuery, searchTerm);
+      handleKeyUp({ e: event, setQuery, searchTerm, query });
 
-      expect(setQuery).toHaveBeenCalledWith('Pikachu');
+      expect(setQuery).toHaveBeenCalledWith('pikachu');
     });
 
     it('should not call setQuery when key is not Enter', () => {
@@ -39,7 +40,7 @@ describe('utils', () => {
         key: 'Escape',
       } as KeyboardEvent<HTMLInputElement>;
 
-      handleKeyUp(event, setQuery, searchTerm);
+      handleKeyUp({ e: event, setQuery, searchTerm, query: searchTerm });
 
       expect(setQuery).not.toHaveBeenCalled();
     });

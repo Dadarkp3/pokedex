@@ -7,7 +7,7 @@ const InfoDisplay = ({ pokemon, loading, error }: InfoDisplayProps) => (
   <div className={styles.infoDisplay}>
     {error && <ErrorMessage />}
     {pokemon && !loading && !error && (
-      <div>{`#${pokemon.id} -  ${pokemon.name.toUpperCase()}`}</div>
+      <div>{`#${pokemon?.id} -  ${pokemon.name.toUpperCase()}`}</div>
     )}
   </div>
 );
