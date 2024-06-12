@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
-import { SearchBarProps } from 'models/SearchBarModels';
+import { SearchBarProps } from 'models/SearchModels';
 
 import SearchBar from '../searchBar';
 

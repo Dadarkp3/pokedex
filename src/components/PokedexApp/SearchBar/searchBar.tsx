@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { handleInputChange, handleKeyUp } from 'lib/utils/searchUtils';
-import { SearchBarProps } from 'models/SearchBarModels';
+import { SearchBarProps } from 'models/SearchModels';
 
 import styles from './searchBar.module.scss';
 
